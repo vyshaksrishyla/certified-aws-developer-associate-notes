@@ -96,11 +96,33 @@ RDS vs. Aurora
 * Aurora costs more than RDS (20% more) - but is more efficient
 - Aurora support for cross region replication
 
+Aurora High Availability and Read scaling
+* 6 copies of your data across 3 AZ
+* 3 copies out of 6 need for reads
+* Self healing with peer to peer replication
+* Storage is striped across 100s of volumes.
+
+* One Aurora Instance takes writes (master)
+* Automated failover for master in less than 30 seconds
+* Master + up to 15 Aurora Read Replicas serve reads, autoscaling available on read replicas.
+* Support for Cross Region Replication
+
 Aurora DB Cluster
 - writer endpoint : pointing to the master
 - reader endpoint: connection load balancing
 
-Aurora Security
+Features of Aurora
+* Automatic fail-over
+* Backup and Recovery
+* Isolation and security
+* industry compliance
+* push button scaling
+* autmated patching with zero downtime
+* Advanced Monitoring
+* Routine Maintencance
+* Backtrack:restore data at any point of time without using backups.
+
+Aurora Security (ALmost same as RDS security.
 - Similar to RDS because uses the same engines
 - Encryption at rest using KMS
 - Automated backups, snapshots and replicas are also encrypted
