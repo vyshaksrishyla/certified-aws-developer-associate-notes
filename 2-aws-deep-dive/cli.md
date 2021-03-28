@@ -19,3 +19,37 @@ If you are using multiple AWS accounts, you can add custom profiles with seperat
 - This error can be decoded using STS 
 - run the command: `aws sts decode-authorization-message --encoded-message {encoded_message_code}`
 - your IAM user must have the correct permissions to use this command by adding the `STS` service to your policy
+
+
+### MISCELLAENOUS
+--dry-run command
+
+Instane metadata:  
+http://169.254.169.254/latest/metadata
+
+## AWS Limits ( Quotas )  
+API Rate Limits  
+DescribeInstances API for EC2 has a limit of 100 calls per seconds  
+GetObject on S3 has a limit of 5500 GET per second per prefix  
+For Intermittent Errors: implement Exponential Backoff  
+For Consistent Errors: request an API throttling limit increse  
+
+## SErvice Quotas (Service Limits)  
+Running On-Demand Standard Instances: I 152 vCPU
+You can request a service limit increase by opening a ticket  
+You can requests a service quota increase by using the service quotas api  
+
+
+## AWS CLI credentials provider chain  
+* Priorities based on  
+    * command line options
+    * Environment variables
+    * CLI credentials file
+    * CLI configuration file
+    * container credentials
+    * Instance profile credentials
+
+## Signing AWS API requests
+Signature v$ (SigV4) - request to AWS are signed using credentials
+HTTP Header option  
+Query String option (ex: s3 pre-signed URLs)
